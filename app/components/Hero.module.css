@@ -1,0 +1,114 @@
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+
+  /* Background image + subtle focus gradient */
+  background:
+    radial-gradient(
+      60% 60% at 50% 38%,
+      rgba(255, 255, 255, 0.06),
+      rgba(0, 0, 0, 0.95)
+    ),
+    url("/image.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  overflow: hidden;
+}
+
+/* =========================
+   ORB (glow is INSIDE image)
+   ========================= */
+
+.orb {
+  width: 160px;
+  height: 160px;
+
+  border-radius: 9999px;
+  opacity: 1;
+
+  margin-bottom: 28px;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+/* =========================
+   TAGLINE PILL
+   ========================= */
+
+.tagline {
+  
+  padding: 6px 14px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================
+   HEADLINE (FIGMA: 72px)
+   ========================= */
+
+.title {
+  width: 663px;
+
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1; /* 100% */
+
+  letter-spacing: 0;
+  text-align: center;
+
+  color: #ffffff;
+  opacity: 1;
+
+  margin-bottom: 18px;
+}
+
+/* =========================
+   SUBTITLE
+   ========================= */
+
+.subtitle {
+  max-width: 801px;
+
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: rgba(255, 255, 255, 0.65);
+  opacity: 1;
+
+  margin-bottom: 36px;
+}
+
+/* =========================
+   STORE BUTTONS IMAGE
+   ========================= */
+
+.stores {
+  width: 440px;   /* from Figma: 439.69 */
+  height: 60px;   /* preserve aspect ratio */
+  opacity: 1;
+  margin-top: 10px;
+
+  user-select: none;
+}

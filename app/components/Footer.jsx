@@ -1,0 +1,64 @@
+import styles from "./Footer.module.css";
+
+export default function Footer() {
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.wrapper}>
+
+        {/* LEFT: Brand (OUTSIDE glass) */}
+        <div className={styles.brand}>
+          <img src="/logo.png" alt="Qyuro logo" />
+          <h3>Qyuro</h3>
+          <p>Tag line goes here</p>
+          <span className={styles.copyright}>
+            © 2026 Qyuro AI Inc.
+          </span>
+        </div>
+
+        {/* RIGHT: Glass frame (ONLY links) */}
+        <div className={styles.glass}>
+          <div className={styles.columns}>
+            <div className={styles.column}>
+              <h4>Product</h4>
+              <a>Home</a>
+              <a>Features</a>
+              <a>Pricing</a>
+            </div>
+
+            <div className={styles.column}>
+              <h4>Resources</h4>
+              <a>Blog</a>
+              <a>Changelog</a>
+              <a>Help Centre</a>
+              <a>Community</a>
+            </div>
+
+            <div className={styles.column}>
+              <h4>Company</h4>
+              <a>About Us</a>
+              <a>Careers</a>
+              <a>Brand Guidelines</a>
+              <a>Contact Us</a>
+              <a>Press</a>
+            </div>
+
+            <div className={styles.column}>
+              <h4>Legal</h4>
+              <a>Privacy Policy</a>
+              <a>Terms of Use</a>
+              <a>Security</a>
+            </div>
+
+            <div className={styles.column}>
+              <h4>Compare to</h4>
+              <a>ChatGPT</a>
+              <a>Perplexity</a>
+              <a>Gemini</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  );
+}
