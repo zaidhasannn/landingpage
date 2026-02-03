@@ -4,40 +4,43 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
 
-         {/* Tagline pill */}
-      <span className={styles.tagline}>
-        Talk. Reflect. Understand.
-      </span>
-
-      {/* Orb (glow is INSIDE this image) */}
-      <img
-        src="/core.png"
-        alt=""
+     
+      <video
+        src="/videos/orb.mp4"
         className={styles.orb}
-        draggable={false}
+        autoPlay
+        loop
+        muted
+        playsInline
       />
 
      
-      {/* Headline */}
-      <h1 className={styles.title}>
-        The AI chatbot
-        <br />
-        that doesn’t guess.
-      </h1>
+      <div className={styles.content}>
 
-      {/* Subtitle */}
-      <p className={styles.subtitle}>
-        Experience the power of a conversational assistant
-        grounded in real-time truth.
-      </p>
+        <span className={styles.tagline}>
+          Talk. Reflect. Understand.
+        </span>
 
-      {/* Store buttons (single image) */}
-      <img
-        src="/pl-app.png"
-        alt="Download on App Store and Google Play"
-        className={styles.stores}
-        draggable={false}
-      />
+        <h1 className={styles.title}>
+          The AI chatbot
+          <br />
+          that doesn’t guess.
+        </h1>
+
+        <p className={styles.subtitle}>
+          Experience the power of a conversational assistant
+          grounded in real-time truth.
+        </p>
+
+        <img
+          src="/pl-app.png"
+          alt="Download on App Store and Google Play"
+          className={styles.stores}
+          draggable={false}
+        />
+
+      </div>
+
     </section>
   );
 }

@@ -1,9 +1,8 @@
-/* =========================
-   SECTION
-   ========================= */
+
 .section {
   width: 100%;
   height: 100vh;
+  min-height: 640px; 
   background: #000;
 
   display: flex;
@@ -13,16 +12,19 @@
   overflow: hidden;
 }
 
-/* =========================
-   ORB CONTAINER
-   ========================= */
+
 .orbContainer {
   position: relative;
   width: 100%;
   height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Orb image */
+
+
 .orb {
   width: 100%;
   height: 100%;
@@ -30,9 +32,7 @@
   display: block;
 }
 
-/* =========================
-   TEXT OVERLAY (CENTERED)
-   ========================= */
+
 .textOverlay {
   position: absolute;
   inset: 0;
@@ -44,9 +44,11 @@
 
   text-align: center;
   pointer-events: none;
+
+  padding: 0 20px; 
 }
 
-/* Small top line */
+
 .kicker {
   font-family: "Poppins", sans-serif;
   font-size: 13px;
@@ -57,7 +59,6 @@
   margin-bottom: 6px;
 }
 
-/* Main title */
 .title {
   font-family: "Poppins", sans-serif;
   font-size: 36px;
@@ -72,7 +73,6 @@
   font-weight: 600;
 }
 
-/* Description */
 .description {
   max-width: 420px;
 
@@ -84,20 +84,151 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* =========================
-   MOBILE
-   ========================= */
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 34px;
+  }
+
+  .description {
+    max-width: 400px;
+  }
+}
+
+
 @media (max-width: 768px) {
-  .orbContainer {
-    width: 320px;
-    height: 320px;
+
+  .section {
+    height: 100svh;
+  }
+
+ 
+  .orb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+     transform: scale(0.88); 
+  }
+
+
+  .textOverlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 18px;
+    transform: none;
+  }
+
+  .kicker {
+    font-size: 12px;
+    margin-bottom: 4px;
+    position: relative;
+    top: -48px;
   }
 
   .title {
-    font-size: 28px;
+    font-size: 38px;
+    position: relative;
+    margin-bottom: 10px;
+    top: -48px;
   }
 
   .description {
     font-size: 12px;
+    max-width: 300px;
+    line-height: 1.55;
   }
 }
+
+
+
+@media (max-width: 420px) {
+
+ 
+  .orb {
+    width: 100%;
+    height: 100%;
+  }
+
+  .kicker,
+  .title {
+    top: -34px;
+  }
+
+
+  .textOverlay {
+    transform: none;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .description {
+    max-width: 260px;
+  }
+}
+
+
+
+
+.pill {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  padding: 8px 16px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  letter-spacing: .05em;
+
+  color: rgba(255,255,255,.85);
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.14);
+
+  transform: translate(-50%, -50%) scale(.6);
+  opacity: 0;
+  z-index: 2;
+
+  animation: pillFloat 9s ease-in-out infinite;
+}
+
+@keyframes pillFloat {
+
+  0% {
+    transform: translate(-50%, -50%) scale(.5);
+    opacity: 0;
+  }
+
+  15% { opacity: 1; }
+
+  45% {
+    transform: translate(var(--x), var(--y)) scale(1);
+    opacity: 1;
+  }
+
+  70% { opacity: .9; }
+
+  100% {
+    transform: translate(-50%, -50%) scale(.5);
+    opacity: 0;
+  }
+}
+
+.pill0 { --x:-260px; --y:-200px; }
+.pill1 { --x:-40px;  --y:-260px; }
+.pill2 { --x:220px;  --y:-200px; }
+.pill3 { --x:300px;  --y:-40px;  }
+.pill4 { --x:260px;  --y:180px;  }
+.pill5 { --x:80px;   --y:240px;  }
+.pill6 { --x:-160px; --y:260px;  }
+.pill7 { --x:-300px; --y:160px;  }
+.pill8 { --x:-400px; --y:-20px;  }

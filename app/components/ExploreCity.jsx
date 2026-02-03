@@ -1,13 +1,43 @@
 import styles from "./ExploreCity.module.css";
 
+const pills = [
+  "BIOLOGY",
+  "ART",
+  "PHILOSOPHY",
+  "TECH",
+  "SPORTS",
+  "ENTERTAINMENT",
+  "STOCKS",
+  "FINANCE",
+  "GAMES"
+];
+
 export default function ExploreCity() {
   return (
     <section className={styles.section}>
       <div className={styles.orbContainer}>
-        {/* Orb */}
-        <img src="/giff.png" alt="Qyuro Orb" className={styles.orb} />
 
-        {/* Text overlay */}
+       
+        <video
+          className={styles.orb}
+          src="/videos/backg.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+
+     
+        {pills.map((p, i) => (
+          <span
+            key={p}
+            className={`${styles.pill} ${styles["pill" + i]}`}
+          >
+            {p}
+          </span>
+        ))}
+
+       
         <div className={styles.textOverlay}>
           <p className={styles.kicker}>Explore your</p>
 
@@ -21,6 +51,7 @@ export default function ExploreCity() {
             Qyuro.city is designed to fuel & fulfill your curiosity.
           </p>
         </div>
+
       </div>
     </section>
   );

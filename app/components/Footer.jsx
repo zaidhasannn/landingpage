@@ -5,17 +5,17 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
 
-        {/* LEFT: Brand (OUTSIDE glass) */}
+       
         <div className={styles.brand}>
           <img src="/logo.png" alt="Qyuro logo" />
           <h3>Qyuro</h3>
-          <p>Tag line goes here</p>
+          <p>Talk. Reflect. Understand.</p>
           <span className={styles.copyright}>
             © 2026 Qyuro AI Inc.
           </span>
         </div>
 
-        {/* RIGHT: Glass frame (ONLY links) */}
+       
         <div className={styles.glass}>
           <div className={styles.columns}>
             <div className={styles.column}>

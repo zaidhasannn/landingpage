@@ -3,7 +3,7 @@ import styles from "./Features.module.css";
 export default function Features() {
   return (
     <section className={styles.section}>
-      {/* ===== TOP INTRO ===== */}
+    
       <div className={styles.intro}>
         <h2 className={styles.heading}>
           Beyond Search. Smarter than Chat.
@@ -22,14 +22,14 @@ export default function Features() {
         </p>
       </div>
 
-      {/* ===== LOWER CONTENT ===== */}
+     
       <div className={styles.contentRow}>
-        {/* Left abstract visual */}
+       
        <div className={styles.abstractWrapper}>
     <img src="/sidelogo.png" alt="" />
   </div>
 
-        {/* Right features */}
+      
         <div className={styles.features}>
           <div className={`${styles.feature} ${styles.context}`}>
             <h3>Conversational Context:</h3>

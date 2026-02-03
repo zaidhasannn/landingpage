@@ -1,12 +1,10 @@
 .section {
   background: #000;
-  padding: 120px 0;
+  padding: 120px 0 260px;
   overflow: hidden;
 }
 
-/* =========================
-   TOP INTRO (CENTERED)
-   ========================= */
+
 
 .intro {
   /* max-width: 760px;
@@ -43,26 +41,22 @@
 }
 
 
-/* =========================
-   LOWER SPLIT CONTENT
-   ========================= */
 
 .contentRow {
   position: relative;
   display: flex;
   align-items: flex-start;
 
-  padding-left: 800px;   /* 🔴 THIS IS THE KEY */
+  padding-left: 800px;   
   padding-right: 120px;
 
-  min-height: 1000px;
+  min-height: 900px;
 }
 
 
-/* Left abstract visual */
 .abstractWrapper {
   position: absolute;
-  left: -200px;     /* bleed left like Figma */
+  left: -200px;     
   top: 50%;
   transform: translateY(-50%);
 
@@ -81,23 +75,24 @@
 
 
 
-/* Right features column */
+
 .features {
   position: relative;
   width: 520px;
-  height: 520px;
+  min-height: 520px;
   margin-top: 300px;
   z-index: 2;
 }
 
-/* Individual feature block */
+
 .feature {
   position: absolute;
   opacity: 1;
+  
 }
 
 
-/* Feature heading */
+
 .feature h3 {
   font-family: "Poppins", sans-serif;
   font-size: 20px;
@@ -107,10 +102,10 @@
   letter-spacing: 0;
 
   color: #ffffff;
-  margin-bottom: 14px;    /* slightly more breathing room */
+  margin-bottom: 14px;    
 }
 
-/* Feature body text */
+
 .feature p {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -119,17 +114,18 @@
   line-height: 1.41;
   letter-spacing: 0;
 
+
   color: rgba(255, 255, 255, 0.6);
 }
 
 
-/* Right-aligned feature */
 .feature.right {
   width: 230px;
   text-align: right;
+  
 }
 
-/* Heading */
+
 .feature.right h3 {
   font-family: "Poppins", sans-serif;
   font-size: 20px;
@@ -142,7 +138,7 @@
   margin-bottom: 12px;
 }
 
-/* Body text */
+
 .feature.right p {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -150,31 +146,191 @@
 
   line-height: 1.41;
   letter-spacing: 0;
+  
 
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* Top-left */
+
 .context {
   width: 255px;
   top: 0;
   left: 0;
   text-align: left;
+  margin-top: 60px;
+  
 }
 
-/* Middle-right */
+
 .grounding {
   width: 230px;
   top: 140px;
   right: 0;
   text-align: right;
-  margin-bottom: 30px;
+  margin-top: 100px;
+  
 }
 
-/* Bottom-left */
+
 .hallucinations {
   width: 230px;
   top: 320px;
   left: 0;
   text-align: left;
+  margin-top: 100px;
+}
+
+
+
+@media (max-width: 1024px) {
+  .description {
+    width: 90%;
+  }
+
+  .contentRow {
+    padding-left: 40px;
+    padding-right: 40px;
+    min-height: auto;
+  }
+
+  .abstractWrapper {
+    width: 700px;
+    height: 700px;
+    left: -250px;
+    margin-top: 200px;
+  }
+
+  .features {
+    width: 420px;
+    margin-top: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 16px;
+  }
+
+  .description {
+    width: 100%;
+    font-size: 14px;
+    margin-top: 24px;
+  }
+
+  .contentRow {
+    display: block;
+    padding: 0;
+    min-height: auto;
+  }
+
+  .abstractWrapper {
+    position: relative;
+    left: -120px;
+    top: auto;
+    transform: none;
+    width: 520px;
+    height: 520px;
+    margin: 80px 0 40px;
+  }
+
+  .features {
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+  }
+
+ .feature {
+  position: absolute;
+  width: 220px;
+}
+
+
+  .feature.right {
+    text-align: center;
+  }
+
+  .context,
+  .grounding,
+  .hallucinations {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 26px;
+  }
+
+  .abstractWrapper {
+    width: 440px;
+    height: 440px;
+    left: -140px;
+  }
+
+  .feature h3 {
+    font-size: 16px;
+  }
+
+  .feature p {
+    font-size: 13px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+
+  .intro{
+    padding: 40px;
+  }
+
+  .contentRow {
+    position: relative;
+    padding: 0 16px;
+    min-height: 980px;
+  }
+
+  .abstractWrapper {
+    position: absolute;
+    width: 1015px;
+    height: 1015px;
+    left: -420px;
+    top: 120px;
+    transform: none;
+    margin: 0;
+  }
+
+
+  .features {
+  position: relative;
+  width: 100%;
+  height: auto;             
+  padding-bottom: 120px;    
+}
+
+
+  .feature {
+    position: absolute;
+    width: 260px;
+
+   
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+
+  .context {
+    top: 260px;
+  }
+
+  .grounding {
+    top: 520px;
+  }
+
+  .hallucinations {
+    top: 800px;
+  }
 }

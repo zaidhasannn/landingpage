@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 
@@ -8,6 +8,8 @@ export default function Navbar() {
   const pillRef = useRef(null);
   const pillTextRef = useRef(null);
   const listRef = useRef(null);
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const movePill = (e) => {
     const link = e.currentTarget;
@@ -18,7 +20,7 @@ export default function Navbar() {
     pillRef.current.style.left = `${linkRect.left - listRect.left}px`;
     pillRef.current.style.opacity = "1";
 
-    // ✅ put text INSIDE the pill
+    
     pillTextRef.current.innerText = link.innerText;
     pillTextRef.current.setAttribute("data-text", link.innerText);
   };
@@ -29,32 +31,85 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      {/* Logo */}
+   
       <div className={styles.logo}>
-        {/* <img src="/logo.png" alt="Qyuro logo" /> */}
-        <div className={styles.logoIcon}>Q</div>
+        <img
+          src="/logo.png"
+          alt="Qyuro logo"
+          className={styles.logoImage}
+        />
         <span className={styles.logoText}>QYURO</span>
       </div>
 
-      {/* Links */}
+     
       <ul
         className={styles.links}
         ref={listRef}
         onMouseLeave={hidePill}
       >
-        {/* 🔥 FIXED PILL */}
         <span ref={pillRef} className={styles.hoverPill}>
-          <span ref={pillTextRef} className={styles.pillText} ></span>
+          <span ref={pillTextRef} className={styles.pillText}></span>
         </span>
 
-        <li><Link href="#about" onMouseEnter={movePill}>About</Link></li>
-        <li><Link href="#features" onMouseEnter={movePill}>Features</Link></li>
-        <li><Link href="#city" onMouseEnter={movePill}>Qyuro.city</Link></li>
-        <li><Link href="#support" onMouseEnter={movePill}>Support</Link></li>
-        <li><Link href="#blogs" onMouseEnter={movePill}>Blogs</Link></li>
+        <li>
+          <Link href="#about" onMouseEnter={movePill}>
+            About
+          </Link>
+        </li>
+        <li>
+          <Link href="#features" onMouseEnter={movePill}>
+            Features
+          </Link>
+        </li>
+        <li>
+          <Link href="#city" onMouseEnter={movePill}>
+            Qyuro.city
+          </Link>
+        </li>
+        <li>
+          <Link href="#support" onMouseEnter={movePill}>
+            Support
+          </Link>
+        </li>
+        <li>
+          <Link href="#blogs" onMouseEnter={movePill}>
+            Blogs
+          </Link>
+        </li>
       </ul>
 
-      {/* CTA */}
+      
+      <button
+        className={styles.menuBtn}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        ☰
+      </button>
+
+   
+      <div
+        className={`${styles.mobileMenu} ${
+          menuOpen ? styles.open : ""
+        }`}
+      >
+        <Link href="#about" onClick={() => setMenuOpen(false)}>
+          About
+        </Link>
+        <Link href="#features" onClick={() => setMenuOpen(false)}>
+          Features
+        </Link>
+        <Link href="#city" onClick={() => setMenuOpen(false)}>
+          Qyuro.city
+        </Link>
+        <Link href="#support" onClick={() => setMenuOpen(false)}>
+          Support
+        </Link>
+        <Link href="#blogs" onClick={() => setMenuOpen(false)}>
+          Blogs
+        </Link>
+      </div>
+
+    
       <button className={styles.cta}>Download</button>
     </nav>
   );
