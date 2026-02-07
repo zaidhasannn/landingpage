@@ -105,7 +105,7 @@
   z-index: 3;
 }
 
-.card {
+/* .card {
   position: absolute;
   inset: 0;
 
@@ -133,8 +133,38 @@
   text-align: center;
 
   transition: transform 400ms ease-out, opacity 400ms ease-out;
+} */
+ 
+
+
+  /* true glass */
+  
+.card {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.20);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.30);
+
+  padding: 24px 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  transition: transform 400ms ease-out, opacity 400ms ease-out;
 }
-/* 
+
+
+
 .card:nth-child(1) {
   transform: translate(18px, 22px) rotate(-6deg);
   opacity: 0.35;
@@ -157,7 +187,7 @@
   transform: rotate(1deg);
   opacity: 1;
   z-index: 4;
-} */
+} 
 
 .card:nth-child(1) {
   transform: translate(18px, 22px) rotate(-6deg);
@@ -344,7 +374,7 @@
  
 }
 
-.faqIcon {
+/* .faqIcon {
   position: relative;
   width: 46px;
   height: 46px;
@@ -357,9 +387,35 @@
     0 0 24px rgba(255, 255, 255, 0.04);
 
   overflow: hidden;
+} */
+
+
+
+.faqIcon {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 24px;
+
+  /* glass body — lower opacity for sweep contrast */
+  background: rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+
+  flex-shrink: 0;
+  overflow: hidden;
+
+  /* NO inset highlight — this was killing the sweep */
+  box-shadow:
+    0 8px 22px rgba(0,0,0,0.45);
+
+  transition:
+    transform 200ms ease,
+    opacity 200ms ease;
 }
 
-
+/* 
 .faqIcon::before {
   content: "";
   position: absolute;
@@ -399,24 +455,73 @@
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
+} */
+ .faqIcon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+
+  background:
+    radial-gradient(
+      120% 120% at 0% 0%,
+      rgba(255,255,255,1),
+      rgba(255,255,255,0.4) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      120% 120% at 100% 100%,
+      rgba(255,255,255,1),
+      rgba(255, 255, 255, 0.4) 40%,
+      transparent 70%
+    );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
 }
 
 
-.faqIcon::after {
+
+/* .faqIcon::after {
   content: "";
   position: absolute;
   inset: -40%;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.906),
-    transparent 45%,
-    transparent 55%,
+    rgba(255, 255, 255, 0.506),
+    transparent 65%,
+    transparent 65%,
     rgba(255,255,255,0.906)
   );
-  opacity: 0.25;
+  opacity: 0.15;
+  pointer-events: none;
+} */
+
+
+.faqIcon::after {
+  content: "";
+  position: absolute;
+  inset: -80%;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.30) 0%,
+    rgba(255,255,255,0.18) 18%,
+    rgba(255,255,255,0.08) 32%,
+    transparent 55%,
+    transparent 65%,
+    rgba(255,255,255,0.08) 78%,
+    rgba(255,255,255,0.18) 92%,
+    rgba(255,255,255,0.30) 100%
+  );
+
+  opacity: 0.12;
   pointer-events: none;
 }
-
 
 
 
